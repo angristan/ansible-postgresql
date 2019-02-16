@@ -23,6 +23,7 @@
 - name: Create databases
   postgresql_db:
     name: "{{ item.name }}"
+    template: "{{ item.template | default('') }}"
     state: "{{ item.state | default('present') }}"
   with_items: "{{ postgresql_databases }}"
   become: yes
@@ -32,9 +33,10 @@
 - name: Add users
   postgresql_user:
     name: "{{ item.name }}"
-    password: "{{ item.password }}"
+    password: "{{ item.password | default('') }}"
     db: "{{ item.db }}"
-    priv: "{{ item.priv }}"
+    priv: "{{ item.priv  | default('') }}"
+    role_attr_flags: "{{ item.role_attr_flags | default('') }}"
     state: "{{ item.state | default('present') }}"
   with_items: "{{ postgresql_users }}"
   become: yes
