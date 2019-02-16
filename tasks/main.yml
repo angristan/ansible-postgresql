@@ -50,6 +50,20 @@
   notify: restart postgresql
   tags: postgresql.options
 
+- name: Authorize all remote IPv4 connections
+  lineinfile:
+    path: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+    line: 'host all all 0.0.0.0/0 md5'
+  notify: restart postgresql
+  when: authorize_remote_ipv4
+
+- name: Authorize all remote IPv6 connections
+  lineinfile:
+    path: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+    line: 'host all all ::0/0 md5'
+  notify: restart postgresql
+  when: authorize_remote_ipv6
+
 - name: Enable and start postgresql service
   systemd:
     name: postgresql.service

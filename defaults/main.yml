@@ -3,6 +3,8 @@
 postgresql_install_from_official_repo: true
 postgresql_version: 11
 
+authorize_remote_ipv4: false
+authorize_remote_ipv6: false
 
 postgresql_databases: []
 postgresql_users: []

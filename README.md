@@ -26,6 +26,5 @@ By default, the role will install PostgreSQL 11 from the [PGDG APT repository](h
     postgresql_users:
       - name: blog
         password: "{{ vault_postgresql_password_blog }}"
-        priv: 'ALL'
         db: blog
 ```
