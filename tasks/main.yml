@@ -12,7 +12,7 @@
 
 - name: Install PostgreSQL
   apt:
-    name: postgresql{{ '-' ~ postgresql_version if postgresql_version is defined else '' }}
+    name: postgresql-{{ postgresql_version }}
   tags: postgresql.install
 
 - name: Install python-psycopg2 (for Ansible)
@@ -44,7 +44,7 @@
 - name: Set postgresql options
   template:
     src: options.conf.j2
-    dest: /etc/postgresql/11/main/conf.d/ansible.conf
+    dest: "/etc/postgresql/{{ postgresql_version }}/main/conf.d/ansible.conf"
   notify: restart postgresql
   tags: postgresql.options
 

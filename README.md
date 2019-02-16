@@ -4,7 +4,7 @@ This is a simple role that will install PostgreSQL and handle users, databases a
 
 The role should work on all Debian-based distributions.
 
-By default, the role will install the latest version via the `postgresql` metapackage, from the [PGDG APT repository](https://wiki.postgresql.org/wiki/Apt). You can set a version with `postgresql_version`.
+By default, the role will install PostgreSQL 11 from the [PGDG APT repository](https://wiki.postgresql.org/wiki/Apt). You can set a version with `postgresql_version`.
 
 ## Sample playbook
 

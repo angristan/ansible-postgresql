@@ -1,6 +1,8 @@
 ---
 
 postgresql_install_from_official_repo: true
+postgresql_version: 11
+
 
 postgresql_databases: []
 postgresql_users: []
