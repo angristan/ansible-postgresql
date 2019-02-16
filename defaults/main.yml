@@ -1,0 +1,7 @@
+---
+
+postgresql_install_from_official_repo: true
+
+postgresql_databases: []
+postgresql_users: []
+postgresql_options: []
