@@ -1,4 +1,4 @@
-# Ansible role for PostgrSQL
+# Ansible role for PostgreSQL
 
 This is a simple role that will install PostgreSQL and handle users, databases and configuration.
 
