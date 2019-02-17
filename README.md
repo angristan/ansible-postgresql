@@ -17,7 +17,7 @@ By default, the role will install PostgreSQL 11 from the [PGDG APT repository](h
       tags: postgresql
   vars:
     postgresql_version: 11
-    postgresql_install_from_official_repo: true
+    postgresql_install_from_pgdg: true
     postgresql_options:
       - key: listen_addresses
         value: "'*'"

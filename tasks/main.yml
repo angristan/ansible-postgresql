@@ -1,13 +1,13 @@
 - name: Add PGDG APT key
   apt_key:
     url:  https://www.postgresql.org/media/keys/ACCC4CF8.asc
-  when: postgresql_install_from_official_repo
+  when: postgresql_install_from_pgdg
   tags: postgresql.install
 
 - name: Add PGDG APT repository
   apt_repository:
     repo: "deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main"
-  when: postgresql_install_from_official_repo
+  when: postgresql_install_from_pgdg
   tags: postgresql.install
 
 - name: Install PostgreSQL
@@ -55,14 +55,14 @@
     path: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
     line: 'host all all 0.0.0.0/0 md5'
   notify: restart postgresql
-  when: authorize_remote_ipv4
+  when: postgresql_authorize_remote_ipv4
 
 - name: Authorize all remote IPv6 connections
   lineinfile:
     path: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
     line: 'host all all ::0/0 md5'
   notify: restart postgresql
-  when: authorize_remote_ipv6
+  when: postgresql_authorize_remote_ipv6
 
 - name: Enable and start postgresql service
   systemd:
