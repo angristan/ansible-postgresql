@@ -46,7 +46,7 @@
 - name: Set postgresql options
   template:
     src: options.conf.j2
-    dest: "/etc/postgresql/{{ postgresql_version }}/main/conf.d/ansible.conf"
+    dest: "/etc/postgresql/{{ postgresql_version }}/main/conf.d/options.conf"
   notify: restart postgresql
   tags: postgresql.options
 
