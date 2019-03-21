@@ -21,8 +21,9 @@ By default, the role will install PostgreSQL 11 from the [PGDG APT repository](h
     postgresql_version: 11
     postgresql_install_from_pgdg: true
     postgresql_options:
-      - key: listen_addresses
-        value: "'*'"
+      - {key: listen_addresses, value: "'*'"}
+      - {key: max_connections, value: 200}
+      - {key: shared_buffers, value: 1GB}
     postgresql_databases:
       - name: blog
     postgresql_users:
