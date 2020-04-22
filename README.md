@@ -1,7 +1,5 @@
 # Ansible role for PostgreSQL
 
-[![CircleCI](https://circleci.com/gh/angristan/ansible-postgresql.svg?style=svg)](https://circleci.com/gh/angristan/ansible-postgresql)
-
 This is a simple role that will install PostgreSQL and handle users, databases and configuration.
 
 The role should work on all Debian-based distributions.
